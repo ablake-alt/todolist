@@ -3,7 +3,7 @@ from .models import Task
 from .forms import TaskForm
 
 def index(request):
-    tasks = Task.objects.all()
+    tasks = Task.objects.order_by('completed', '-created_at')
     form = TaskForm()
 
     if request.method == 'POST':
